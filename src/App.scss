@@ -1,13 +1,11 @@
-// #root {
-//     max-width: 1280px;
-//     margin: 0 auto;
-//     text-align: center;
-// }
-
 .container {
-    text-align: center;
     max-width: var(--content-wrapper-width);
     margin: 0 auto;
-    height: calc(100vh - var(--header-nav-height));
+    min-height: calc(100vh - var(--header-nav-height));
     position: relative;
+    padding: 20px 20px 50px;
+
+    p {
+        margin-block: 5px;
+    }
 }

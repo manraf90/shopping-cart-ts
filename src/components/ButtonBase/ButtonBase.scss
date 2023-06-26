@@ -1,0 +1,24 @@
+.button {
+    background-color: $primary-color-1;
+    font-weight: 600;
+    color: $white;
+    font-size: 16px;
+    line-height: 20px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    padding-block: 10px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    @include flex-center;
+
+    &:hover {
+        background-color: $primary-color-2;
+        transition: color ease-in-out 0.25s;
+    }
+
+    &:active {
+        transform: scale(0.99);
+    }
+}

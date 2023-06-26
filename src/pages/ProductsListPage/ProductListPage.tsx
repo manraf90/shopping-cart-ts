@@ -1,63 +1,48 @@
-import { useEffect } from 'react';
-
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { useAppSelector } from '../../app/hooks';
 import {
     getAllProducts,
-    fetchProducts,
-    getProductsError,
     isLoadingProducts
 } from '../../features/products/products.slice';
 
-import { toast } from 'react-toastify';
 import Loader from '../../components/Loader/Loader';
 import { Product } from '../../types/product.type';
+import useFetchProducts from '../../hooks/useFetchProducts';
 
-const ProductListPage = () => {
-    const dispatch = useAppDispatch();
+import './ProductListPage.scss';
+import ProductCard from '../../components/ProductCard/ProductCard';
+
+function ProductListPage() {
     const data = useAppSelector(getAllProducts);
     const isLoading = useAppSelector(isLoadingProducts);
-    const error = useAppSelector(getProductsError);
+    useFetchProducts();
 
-    useEffect(() => {
-        console.log('useEffect', error);
+    const showNumberProductsPerPage = 15;
 
-        if (error) {
-            toast.error(error);
-            return;
-        }
+    const productsCount =
+        data?.length > showNumberProductsPerPage
+            ? showNumberProductsPerPage
+            : data?.length - showNumberProductsPerPage;
 
-        if (data?.products?.length > 0) {
-            return;
-        }
+    const countProductTitle = isLoading
+        ? 'Produkty są ładowane...'
+        : `Liczba produktów: ${productsCount}`;
 
-        dispatch(fetchProducts());
-    }, []);
-
-    // let content;
-
-    // switch (status) {
-    //     case 'loading':
-    //         content = <p>Loading...</p>;
-    //         break;
-    //     case 'succeeded':
-    //         content = data.data.products
-    //             .map((product: Product) => product.title)
-    //             ?.slice(0, 3);
-    //         break;
-    //     case 'failed':
-    //         content = error;
-    //         break;
-    //     default:
-    //         break;
-    // }
-    console.log('data', data);
     return (
-        <div>
-            <Loader loading={isLoading} />
-
-            {data?.map((product: Product) => product.title).slice(0, 10)}
-        </div>
+        <>
+            <h3 className="product_list_page-product_count">
+                {countProductTitle}
+            </h3>
+            <div className="product_list_page-container">
+                <Loader loading={isLoading} />
+                {!isLoading &&
+                    data
+                        ?.map((product: Product) => (
+                            <ProductCard product={product} key={product.id} />
+                        ))
+                        .slice(0, 15)}
+            </div>
+        </>
     );
-};
+}
 
 export default ProductListPage;

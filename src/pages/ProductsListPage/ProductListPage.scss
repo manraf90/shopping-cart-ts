@@ -1,0 +1,23 @@
+.product_list_page {
+    &-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 14px;
+
+        @include tablet {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include mobile {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &-product_count {
+        margin-bottom: 20px;
+
+        @include mobile {
+            text-align: center;
+        }
+    }
+}

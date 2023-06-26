@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { FetchData, Product, ProductsState } from '../../types/product.type';
+import { faker } from '@faker-js/faker';
 
 const url = 'https://dummyjson.com/products';
 
@@ -8,6 +9,20 @@ const initialState: ProductsState = {
     error: null,
     isLoading: false
 };
+
+faker.seed(99);
+
+const initialProducts = [...Array(20)].map(() => ({
+    id: faker.number.int({ min: 100000 }),
+    title: faker.commerce.productName(),
+    description: faker.commerce.productDescription(),
+    price: faker.commerce.price(),
+    stock: faker.number.int({ min: 10, max: 100 }),
+    image: faker.image.url(),
+    product: faker.commerce.product()
+}));
+
+console.log('initialProducts', initialProducts);
 
 export const fetchProducts = createAsyncThunk(
     'products/fetchProducts',
@@ -29,17 +44,6 @@ export const fetchProducts = createAsyncThunk(
 export const productsSlice = createSlice({
     name: 'products',
     initialState,
-    // reducers: {
-    //     increment: (state) => {
-    //         state.products += 1;
-    //     },
-    //     decrement: (state) => {
-    //         state.products -= 1;
-    //     },
-    //     incrementByAmount: (state, action: PayloadAction<number>) => {
-    //         state.products += action.payload;
-    //     },
-    // },
     reducers: {},
     extraReducers(builder) {
         builder.addCase(fetchProducts.pending, (state) => {
