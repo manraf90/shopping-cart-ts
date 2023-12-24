@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { FaShoppingCart } from 'react-icons/fa';
+// import { FaShoppingCart } from 'react-icons/fa';
 import './Header.scss';
 
 const Header = () => {
