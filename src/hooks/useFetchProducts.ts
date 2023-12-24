@@ -1,28 +1,28 @@
-import { useEffect, useCallback } from 'react';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import {
-    fetchProducts,
-    getProductsError
-} from '../features/products/products.slice';
-import { toast } from 'react-toastify';
+// import { useEffect, useCallback } from 'react';
+// import { useAppDispatch, useAppSelector } from '../app/hooks';
+// import {
+//     fetchProducts,
+//     getProductsError
+// } from '../features/products/products.slice';
+// import { toast } from 'react-toastify';
 
-const useFetchProducts = () => {
-    const error = useAppSelector(getProductsError);
+// const useFetchProducts = () => {
+//     const error = useAppSelector(getProductsError);
 
-    const dispatch = useAppDispatch();
+//     const dispatch = useAppDispatch();
 
-    const fetchData = useCallback(() => {
-        dispatch(fetchProducts());
-    }, [dispatch]);
+//     const fetchData = useCallback(() => {
+//         dispatch(fetchProducts());
+//     }, [dispatch]);
 
-    useEffect(() => {
-        if (error) {
-            toast.error(error);
-            return;
-        }
+//     useEffect(() => {
+//         if (error) {
+//             toast.error(error);
+//             return;
+//         }
 
-        fetchData();
-    }, [fetchData]);
-};
+//         fetchData();
+//     }, [fetchData]);
+// };
 
-export default useFetchProducts;
+// export default useFetchProducts;
