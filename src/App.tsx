@@ -4,6 +4,9 @@ import Header from './components/Header/Header';
 import HomePage from './pages/HomePage/HomePage';
 import ContactPage from './pages/ContactPage/ContactPage';
 import ProductListPage from './pages/ProductsListPage/ProductListPage';
+import DinnerPage from './pages/DinnerPage/DinnerPage';
+import LastGiftPage from './pages/LastGiftPage/LastGiftPage';
+import FirstGiftPage from './pages/FirstGiftPage/FirstGiftPage';
 
 import './App.scss';
 
@@ -16,6 +19,9 @@ const App: React.FC = () => {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/store" element={<ProductListPage />} />
                     <Route path="/contact" element={<ContactPage />} />
+                    <Route path="/dinner" element={<DinnerPage />} />
+                    <Route path="/last-gift" element={<LastGiftPage />} />
+                    <Route path="/first-gift" element={<FirstGiftPage />} />
                 </Routes>
             </div>
         </>

@@ -1,0 +1,15 @@
+.HomePage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @include desktop {
+        max-width: 1000px;
+        margin-inline: auto;
+    }
+
+    button {
+        padding-inline: 20px;
+    }
+}

@@ -10,13 +10,13 @@ const Header = () => {
                     <nav className="header-nav">
                         <div className="header-link_wrapper">
                             <NavLink to="/">Strona główna</NavLink>
-                            <NavLink to="/store">Sklep</NavLink>
-                            <NavLink to="/contact">Kontakt</NavLink>
+                            {/* <NavLink to="/store">Sklep</NavLink> */}
+                            {/* <NavLink to="/contact">Kontakt</NavLink> */}
                         </div>
-                        <button className="header-shopping_cart">
+                        {/* <button className="header-shopping_cart">
                             <FaShoppingCart />
                             <div className="header-qty">3</div>
-                        </button>
+                        </button> */}
                     </nav>
                 </div>
             </header>

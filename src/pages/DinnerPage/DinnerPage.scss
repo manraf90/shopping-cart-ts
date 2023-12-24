@@ -1,0 +1,37 @@
+.dinner_page {
+    img {
+        width: 100%;
+        @include desktop {
+            object-fit: contain;
+            max-height: 500px;
+        }
+    }
+
+    &-button_wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+
+        button {
+            padding-inline: 20px;
+            margin-right: 20px;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .description {
+        text-align: center;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .summary {
+        margin-top: 20px;
+    }
+}
