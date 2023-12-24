@@ -1,7 +1,7 @@
 import ButtonBase from '../../components/ButtonBase/ButtonBase';
 import { useNavigate } from 'react-router-dom';
 
-import './Homepage.scss';
+import './HomePage.scss';
 
 const HomePage: React.FC = () => {
     const navigate = useNavigate();
