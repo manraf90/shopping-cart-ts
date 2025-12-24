@@ -5,6 +5,7 @@ import './HomePage.scss';
 
 const HomePage: React.FC = () => {
     const navigate = useNavigate();
+
     const goToGiftHandler = () => {
         navigate(`/first-gift`);
     };

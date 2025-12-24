@@ -13,10 +13,10 @@ import './App.scss';
 const App: React.FC = () => {
     return (
         <>
-            <Header />
+            {/* <Header /> */}
             <div className="container">
                 <Routes>
-                    <Route path="/" element={<HomePage />} />
+                    <Route path="/" element={<FirstGiftPage />} />
                     {/* <Route path="/store" element={<ProductListPage />} /> */}
                     <Route path="/contact" element={<ContactPage />} />
                     <Route path="/dinner" element={<DinnerPage />} />
